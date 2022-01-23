@@ -11,7 +11,7 @@ def query_for_all_chapters(book_name:str=None):
     book_text = ''
     prev_text = None
     for chapter_number in range(1, 200):
-        chapter_text = query_utils.get_esv_text(
+        chapter_text, reference = query_utils.get_esv_text(
             query_utils.create_passage_query(
                         book=book_name,
                         chapter=str(chapter_number),

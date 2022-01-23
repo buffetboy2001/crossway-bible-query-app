@@ -21,18 +21,13 @@ def get_random_proverbs_passage():
 
     return query_utils.create_passage_query(book="Proverbs", chapter=chapter, verse=verse)
 
-
-# def render_esv_text(data):
-#     text = re.sub('\s+', ' ', data['passages'][0]).strip()
-
-#     return '%s – %s' % (text, data['canonical'])
-
 def main(args):
     '''
     locigal entry point
     '''
     query_utils.process_secrets(args.secrets_file)
-    print(query_utils.get_esv_text(get_random_proverbs_passage()))
+    text, reference = query_utils.get_esv_text(get_random_proverbs_passage())
+    print(f'{text} - {reference}')
 
 
 if __name__ == '__main__':

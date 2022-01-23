@@ -37,5 +37,5 @@ def get_esv_text(passage):
 
     text = re.sub('\s+', ' ', data['passages'][0]).strip()
 
-    return text # '%s – %s' % (text, data['canonical'])
+    return text, data['canonical'] 
 
