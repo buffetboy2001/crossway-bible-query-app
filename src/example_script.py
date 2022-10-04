@@ -19,7 +19,7 @@ def get_random_proverbs_passage():
     chapter = random.randrange(1, len(CHAPTER_LENGTHS))
     verse = random.randint(1, CHAPTER_LENGTHS[chapter])
 
-    return query_utils.create_passage_query(book="Proverbs", chapter=chapter, verse=verse)
+    return query_utils.create_passage_query(book="Psalms", chapter=103, verse="9-12")
 
 def main(args):
     '''
