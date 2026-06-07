@@ -1,4 +1,4 @@
-# bible-api-query
+# crossway bible api queries
 
 A personal project to use python code to pull passages from online.
 
@@ -14,15 +14,15 @@ This code assumes that the API Token is stored in a JSON file. (The token should
 
 ## Example
 
-You can run `python/example_script.py` from the command line. It will generate a query for a random chapter/verse from the book of Proverbs. 
+You can run [src/example_script.py](./src/example_script.py) from the command line. It will generate a query for a random chapter/verse from the book of Proverbs. 
 
 ```bash
-python/example_script.py ./secrets.json
+uv run src/example_script.py ./secrets.json
 ```
 
 A successful query will return something like this:
 ```bash
-By me kings reign, and rulers decree what is just; – Proverbs 8:15
+He will not always chide, nor will he keep his anger forever. He does not deal with us according to our sins, nor repay us according to our iniquities. For as high as the heavens are above the earth, so great is his steadfast love toward those who fear him; as far as the east is from the west, so far does he remove our transgressions from us. - Psalm 103:9–12
 ```
 
 ~ Enjoy ~
