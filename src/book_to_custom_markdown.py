@@ -7,7 +7,7 @@ Ex: ./book_to_custom_markdown.py ./secret.json job
 import argparse
 import query_utils
 
-def query_for_all_chapters(book_name:str=None) -> dict:
+def query_for_all_chapters(book_name:str|None=None) -> dict:
     '''
     Returns the text of each chapter in a dict. Key is chapter number.
     '''
@@ -42,7 +42,7 @@ def query_for_all_chapters(book_name:str=None) -> dict:
 
 def main(args):
     '''
-    locigal entry point
+    logical entry point
     '''
     query_utils.process_secrets(args.secrets_file)
 

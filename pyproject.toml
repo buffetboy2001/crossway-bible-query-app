@@ -1,0 +1,9 @@
+[project]
+name = "crossway-bible-query-app"
+version = "1.0.0"
+description = "Collection of scripts for querying scripture text from the Crossway Bible API"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "requests>=2.34.2",
+]

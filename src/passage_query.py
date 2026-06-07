@@ -4,15 +4,18 @@ import random
 import argparse
 import query_utils
 
-def get_passage(book:str=None, chapter:str=None, verses:str=None):
+def get_passage(book:str|None=None, chapter:str|None=None, verses:str|None=None):
     """
     """
     return query_utils.create_passage_query(book=book, chapter=chapter, verse=verses)
 
 
-def parse_reference_into_tuple(reference:str=None):
+def parse_reference_into_tuple(reference:str|None=None):
     """
     """
+    if reference is None:
+        print('Input Error: reference is None')
+        return None, None
     strarray1 = reference.split('.')
     strarray2 = reference.split(':')
     if (len(strarray1) != 2 and len(strarray2) != 2):
@@ -25,7 +28,7 @@ def parse_reference_into_tuple(reference:str=None):
 
 def main(args):
     '''
-    locigal entry point
+    logical entry point
     '''
     query_utils.process_secrets(args.secrets_file)
     chapter, verses = parse_reference_into_tuple(reference=str(args.reference))

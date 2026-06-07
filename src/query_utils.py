@@ -6,14 +6,16 @@ import time
 global API_KEY
 API_URL = 'https://api.esv.org/v3/passage/text/'
 
-def process_secrets(secrets_file:str=None):
+def process_secrets(secrets_file:str|None=None):
+    if secrets_file is None:
+        raise Exception("Must provide a secrets file to process_secrets()")
     with open(secrets_file) as file:
         secrets_contents = json.load(file)
 
         global API_KEY
         API_KEY = secrets_contents['token']
 
-def create_passage_query(book:str=None, chapter:str=None, verse:str=None) -> str:
+def create_passage_query(book:str|None=None, chapter:str|int|None=None, verse:str|int|None=None) -> str:
     """Create the query string.
 
     Args:
@@ -25,11 +27,11 @@ def create_passage_query(book:str=None, chapter:str=None, verse:str=None) -> str
         str: The query string, properly formatted.
     """
     if book is None:
-        raise "Invalid query. Must provide 'book' at minimum."
+        raise Exception("Invalid query. Must provide 'book' at minimum.")
     return f'{book} {chapter}:{verse}'
 
 
-def get_esv_text(passage:str=None, params:dict=None) -> tuple:
+def get_esv_text(passage:str|None=None, params:dict|None=None) -> tuple:
     """Make the query. 
 
     Args:

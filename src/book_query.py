@@ -5,7 +5,7 @@ Query for content from a book of the bible.
 import argparse
 import query_utils
 
-def query_for_all_chapters(book_name:str=None):
+def query_for_all_chapters(book_name:str|None=None):
     '''
     '''
     book_text = ''
