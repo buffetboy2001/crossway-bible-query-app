@@ -11,6 +11,7 @@ def query_for_all_chapters(book_name:str|None=None) -> dict:
     '''
     Returns the text of each chapter in a dict. Key is chapter number.
     '''
+    print(f'Querying for {book_name}...')
     params = {
             'q': None,
             'indent-poetry': False,
@@ -22,6 +23,7 @@ def query_for_all_chapters(book_name:str|None=None) -> dict:
     chapters = {} # chapter_num: chapter_text
     prev_text = None
     for chapter_number in range(1, 200):
+        print(f'Processing chapter {chapter_number}...')
         chapter_text, reference = query_utils.get_esv_text(
             passage = query_utils.create_passage_query(
                         book=book_name,
@@ -49,6 +51,7 @@ def main(args):
     book_name = args.book_name
     chapters = query_for_all_chapters(book_name)
     with open(book_name.replace(' ', '_') + '.md', 'w') as outfile:
+        print(f'Writing {len(chapters)} chapters to {book_name.replace(" ", "_")}.md')
         for chapter_number, chapter_text in chapters.items():
             outfile.write(f'\n## Chapter {chapter_number} <!-- scripture:{chapter_number} -->\n')
             outfile.write(chapter_text)
